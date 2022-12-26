@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\BlazorApp-WebAssembly-Hit2Coupon.props" />
+</Project>
