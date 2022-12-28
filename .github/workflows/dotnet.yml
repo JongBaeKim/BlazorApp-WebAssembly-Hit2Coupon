@@ -22,22 +22,18 @@ jobs:
         dotnet-version: 6.0.x
     - name: Restore dependencies
       run: dotnet restore
-      working-directory: BlazorApp-WebAssembly-Hit2Coupon/BlazorApp-WebAssembly-Hit2Coupon
     - name: Build
       run: dotnet build --no-restore
-      working-directory: BlazorApp-WebAssembly-Hit2Coupon/BlazorApp-WebAssembly-Hit2Coupon
     - name: Test
       run: dotnet test --no-build --verbosity normal
-      working-directory: BlazorApp-WebAssembly-Hit2Coupon/BlazorApp-WebAssembly-Hit2Coupon
 
     - name: Publish with dotnet
       run: dotnet publish --configuration Release --output build
-      working-directory: BlazorApp-WebAssembly-Hit2Coupon/BlazorApp-WebAssembly-Hit2Coupon
     - name: Deploy to Github Pages
       uses: JamesIves/github-pages-deploy-action@releases/v3
       with:
         ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         BASE_BRANCH: main # The branch the action should deploy from.
         BRANCH: master # The branch the action should deploy to.
-        FOLDER: BlazorApp-WebAssembly-Hit2Coupon/BlazorApp-WebAssembly-Hit2Coupon/build/wwwroot # The folder the action should deploy.
+        FOLDER: build/wwwroot # The folder the action should deploy.
         SINGLE_COMMIT: true
